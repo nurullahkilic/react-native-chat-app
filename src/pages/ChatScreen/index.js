@@ -1,5 +1,5 @@
 import * as React from "react";
-import { View, Text } from "react-native";
+import { SafeAreaView, View, Text } from "react-native";
 import { colors } from "../../config/colors";
 import { chatPageStyles as styles } from "./styles";
 
@@ -7,14 +7,21 @@ import ChatList from "../ChatList";
 
 import RecentUsersSection from "./components/RecentUsers";
 import MessagesSection from "./components/MessagesSection";
+import MessagesHeader from "./components/MessagesHeader";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 function ChatScreenView({ navigation }) {
   return (
-    <View style={styles.container}>
-      <RecentUsersSection />
-      <MessagesSection navigation={navigation} />
-    </View>
+    <>
+      <SafeAreaView style={{ flex: 0, backgroundColor: colors.primary }} />
+      <SafeAreaView style={{ flex: 1, backgroundColor: colors.secondary }}>
+        <View style={styles.container}>
+          <MessagesHeader />
+          <RecentUsersSection />
+          <MessagesSection navigation={navigation} />
+        </View>
+      </SafeAreaView>
+    </>
   );
 }
 
@@ -26,22 +33,13 @@ export default function ChatScreen() {
       <ChatStack.Screen
         name="Home"
         component={ChatScreenView}
-        options={{
-          title: "Messages",
-          headerStyle: {
-            backgroundColor: colors.primary,
-            height: 100,
-            minHeight: 120,
-          },
-          headerTintColor: "#fff",
-          headerTitleStyle: {
-            fontSize: 28,
-            alignItems: "start",
-            fontWeight: "bold",
-          },
-        }}
+        options={{ headerShown: false }}
       />
-      <ChatStack.Screen name="Details" component={ChatList} />
+      <ChatStack.Screen
+        name="chatDetails"
+        component={ChatList}
+        options={{ headerShown: false }}
+      />
     </ChatStack.Navigator>
   );
 }

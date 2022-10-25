@@ -1,4 +1,4 @@
-import { Button, View, FlatList } from "react-native";
+import { SafeAreaView, View, FlatList } from "react-native";
 import { DATA } from "../../../../config/dummy";
 import { messagesSectionStyles as styles } from "./styles";
 
