@@ -15,7 +15,7 @@ export const headerStyle = StyleSheet.create({
     headerText: {
       color:"white",
       fontSize:36 ,
-      fontWeight:"800",
+      fontWeight:"800"
     },
     searchButton : {
       alignItems:"center",

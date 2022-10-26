@@ -3,6 +3,8 @@ import { chatHeaderStyle as styles } from "./styles";
 import { Search, ArrowLeft } from "../../../../components/icons";
 import { colors } from "../../../../config/colors";
 
+import { useModal} from "../../../../context/ModalContext"
+
 function BackButton({ navigation }) {
   return (
     <TouchableHighlight
@@ -24,12 +26,19 @@ function BackButton({ navigation }) {
 }
 
 function UserInfos({ name, uri }) {
+
+  const { openModal } = useModal();
   return (
     <View style={styles.userInfos}>
-      <Image
-        style={{ width: 44, height: 44, borderRadius: 99999 }}
-        source={{ uri }}
-      />
+      <TouchableHighlight
+        onPress={openModal}
+        underlayColor="transparent"
+      >
+        <Image
+          style={{ width: 44, height: 44, borderRadius: 99999 }}
+          source={{ uri }}
+        />
+      </TouchableHighlight>
       <View style={styles.userText}>
         <Text style={styles.headerText}>{name}</Text>
         <Text style={styles.subText}>çevrimiçi</Text>
@@ -38,11 +47,11 @@ function UserInfos({ name, uri }) {
   );
 }
 
-export default function ChatHeader({ name, uri, navigation }) {
+export default function ChatHeader({ name, uri, navigation, setIsOpen }) {
   return (
     <View style={styles.container}>
       <BackButton navigation={navigation} />
-      <UserInfos name={name} uri={uri} />
+      <UserInfos name={name} uri={uri}/>
       <TouchableHighlight
         onPress={() => alert("Search")}
         style={styles.searchButton}

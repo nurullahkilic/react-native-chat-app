@@ -8,14 +8,6 @@ export const messagesSectionStyles = StyleSheet.create({
       width:"100%",
       alignItems: "center",
       justifyContent: "center",
+      position:"relative"
     },
-    mainContent : {
-      flex:1,
-      paddingHorizontal:20,
-      paddingTop:10,
-      width:"100%",
-      flexDirection:"column",
-      alignItems:"flex-start",
-      justifyContent:"flex-start"
-    }
   });

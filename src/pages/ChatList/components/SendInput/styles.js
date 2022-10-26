@@ -13,7 +13,9 @@ export const sendInputStyles = StyleSheet.create({
       alignItems: "center",
       justifyContent: "center",
       borderRadius:9999,
-      paddingStart:8
+      paddingStart:8,
+      position:"absolute",
+      bottom:0,
     }, 
     input : {
       flex:1,
