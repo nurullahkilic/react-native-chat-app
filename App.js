@@ -1,47 +1,43 @@
 import * as React from "react";
-import { StyleSheet, View, Text } from "react-native";
+
+//React Navigation
 import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
+//Zustand
 import { ModalProvider } from "./src/context/ModalContext";
 
-import ChatScreen from "./src/pages/ChatScreen";
-import { colors } from "./src/config/colors";
+//Expo Font
+import * as Font from 'expo-font';
 
-function HomeScreen() {
+import App from "./src/App";
+
+
+import { Text } from "react-native";
+const Splash = () => {
+  return <Text>Yükleniyor</Text>;
+};
+
+export default () => {
+  const [loading, setLoading] = React.useState(true);
+
+
+  Font.loadAsync({
+    IBMPlexSansLight: require('./assets/fonts/IBMPlexSans-Light.ttf'),
+    IBMPlexSansRegular: require('./assets/fonts/IBMPlexSans-Regular.ttf'),
+    IBMPlexSansMedium: require('./assets/fonts/IBMPlexSans-Medium.ttf'),
+    IBMPlexSansSemiBold: require('./assets/fonts/IBMPlexSans-SemiBold.ttf'),
+    IBMPlexSansBold: require('./assets/fonts/IBMPlexSans-Bold.ttf'),
+  });
+
+  React.useEffect(() => {
+    setInterval(() => {
+      setLoading(false);
+    }, 1000);
+  }, []);
+
   return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Text>Home Screen</Text>
-    </View>
+    <NavigationContainer>
+      <ModalProvider>{loading ? <Splash /> : <App />}</ModalProvider>
+    </NavigationContainer>
   );
-}
-
-const Stack = createNativeStackNavigator();
-
-export default function App() {
-  return (
-    <>
-      <ModalProvider>
-        <NavigationContainer style={styles.container}>
-          <Stack.Navigator initialRouteName="Chat">
-            <Stack.Screen
-              name="ChatPage"
-              component={ChatScreen}
-              options={{
-                headerShown: false,
-              }}
-            />
-          </Stack.Navigator>
-        </NavigationContainer>
-      </ModalProvider>
-    </>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "red",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
+};

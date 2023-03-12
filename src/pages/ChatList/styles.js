@@ -1,16 +1,9 @@
+import styled from "@emotion/native";
 import { colors } from "../../config/colors"
-import { StyleSheet } from "react-native";
 
-export const chatListPageStyles = StyleSheet.create({
-    container: {
-      flex: 1,
-      height: "100%",
-      width:"100%",
-      backgroundColor: colors.primary,
-      alignItems: "center",
-      justifyContent: "flex-start",
-    },
-    text: {
-        color:"white"
-    }
-  });
+export const Container = styled.SafeAreaView`
+  flex: 1;
+  height: 100%;
+  width: 100%;
+  background-color: ${colors.secondary};
+`;

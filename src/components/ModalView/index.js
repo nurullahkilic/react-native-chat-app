@@ -1,4 +1,5 @@
 import Modal from "react-native-modal";
+import { css } from "@emotion/react";
 import { Image } from "react-native";
 import { colors } from "../../config/colors";
 
@@ -19,10 +20,10 @@ function ModalView({ children, isOpen, setIsOpen }) {
       onSwipeComplete={() => setIsOpen(false)}
       useNativeDriverForBackdrop
       swipeDirection={["down", "left", "right", "up"]}
-      style={{
-        alignItems: "center",
-        justifyContent: "center",
-      }}
+      style={css`
+      align-items: center;
+      justify-content: center;
+      `}
     >
       {children}
     </Modal>

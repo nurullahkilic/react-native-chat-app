@@ -1,13 +1,16 @@
 import * as React from "react";
-import { SafeAreaView, View, Text } from "react-native";
+import { SafeAreaView } from "react-native";
+import { StatusBar } from "expo-status-bar";
 import { colors } from "../../config/colors";
-import { chatPageStyles as styles } from "./styles";
+import { Container } from "./styles";
 
 import ChatList from "../ChatList";
 
-import RecentUsersSection from "./components/RecentUsers";
-import MessagesSection from "./components/MessagesSection";
-import MessagesHeader from "./components/MessagesHeader";
+import RecentUsersSection from "../../components/RecentUsers";
+import MessagesSection from "../../components/MessagesSection";
+import MessagesHeader from "../../components/MessagesHeader";
+import UserDetailModal from "../../components/UserDetailModal";
+
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 function ChatScreenView({ navigation }) {
@@ -15,11 +18,11 @@ function ChatScreenView({ navigation }) {
     <>
       <SafeAreaView style={{ flex: 0, backgroundColor: colors.primary }} />
       <SafeAreaView style={{ flex: 1, backgroundColor: colors.secondary }}>
-        <View style={styles.container}>
-          <MessagesHeader />
+        <Container>
+          <MessagesHeader navigation={navigation} />
           <RecentUsersSection />
           <MessagesSection navigation={navigation} />
-        </View>
+        </Container>
       </SafeAreaView>
     </>
   );
@@ -29,17 +32,28 @@ const ChatStack = createNativeStackNavigator();
 
 export default function ChatScreen() {
   return (
-    <ChatStack.Navigator>
-      <ChatStack.Screen
-        name="Home"
-        component={ChatScreenView}
-        options={{ headerShown: false }}
-      />
-      <ChatStack.Screen
-        name="chatDetails"
-        component={ChatList}
-        options={{ headerShown: false }}
-      />
-    </ChatStack.Navigator>
+    <>
+      <StatusBar style="light" />
+      <ChatStack.Navigator>
+        <ChatStack.Screen
+          name="chatScreen"
+          component={ChatScreenView}
+          options={{ headerShown: false }}
+        />
+        <ChatStack.Screen
+          name="chatDetails"
+          component={ChatList}
+          options={{ headerShown: false }}
+        />
+        <ChatStack.Screen
+          name="UserInfoModal"
+          component={UserDetailModal}
+          options={{
+            presentation: "modal",
+            headerShown: false,
+          }}
+        />
+      </ChatStack.Navigator>
+    </>
   );
 }

@@ -8,7 +8,19 @@ export const CHAT = [
   {
     sender_name: "Sokka",
     timestamp_ms: 1579137103044,
+    content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem dolor voluptatum id quia quisquam esse vero deleniti eum? Officia, saepe?",
+    type: "Generic",
+  },
+  {
+    sender_name: "Sokka",
+    timestamp_ms: 1579137103044,
     content: "My first girlfriend turned into the moon",
+    type: "Generic",
+  },
+  {
+    sender_name: "Sokka",
+    timestamp_ms: 1579137103044,
+    content: "Turned into the moon",
     type: "Generic",
   },
   {
