@@ -24,8 +24,18 @@ function HomeScreen({ navigation }) {
         onPress={() => navigation.navigate("ChatPage", { screen: "Home" })}
       />
       <Button
+        title="Aşk Zamanı"
+        onPress={() => navigation.navigate("ProductView", {
+          banner:"https://image.tmdb.org/t/p/w1280/n4GJFGzsc7NinI1VeGDXIcQjtU2.jpg",
+          poster:"https://image.tmdb.org/t/p/w780//iYypPT4bhqXfq1b6EnmxvRt6b2Y.jpg",
+        })}
+      />
+      <Button
         title="House M.D."
-        onPress={() => navigation.navigate("ProductView")}
+        onPress={() => navigation.navigate("ProductView", {
+          banner:"https://www.themoviedb.org/t/p/w1280/h3vViR087OJlk4PedNt5JLIKOOi.jpg",
+          poster:"https://image.tmdb.org/t/p/w780//lkvhReTBZ2Ksl0Dl5Oplsf6UYkF.jpg",
+        })}
       />
       <Button title="Çıkış Yap!" onPress={() => setIsLoggedIn(false)} />
     </View>
