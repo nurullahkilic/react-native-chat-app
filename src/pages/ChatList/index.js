@@ -15,11 +15,7 @@ export default function ChatList({ route, navigation }) {
 
   return (
     <Container>
-      <ChatHeader
-        navigation={navigation}
-        uri={item?.uri}
-        name={item?.name}
-      />
+      <ChatHeader uri={item?.uri} name={item?.name} />
       <ChatSection>
         <SendInput />
       </ChatSection>

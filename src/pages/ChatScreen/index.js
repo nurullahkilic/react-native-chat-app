@@ -19,9 +19,9 @@ function ChatScreenView({ navigation }) {
       <SafeAreaView style={{ flex: 0, backgroundColor: colors.primary }} />
       <SafeAreaView style={{ flex: 1, backgroundColor: colors.secondary }}>
         <Container>
-          <MessagesHeader navigation={navigation} />
+          <MessagesHeader/>
           <RecentUsersSection />
-          <MessagesSection navigation={navigation} />
+          <MessagesSection />
         </Container>
       </SafeAreaView>
     </>

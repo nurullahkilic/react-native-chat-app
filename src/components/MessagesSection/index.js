@@ -6,7 +6,7 @@ import { css } from "@emotion/native";
 
 import ChatListItem from "../ChatListItem";
 
-export default function MessagesSection({ navigation }) {
+export default function MessagesSection() {
   return (
     <Container>
       <FlatList
@@ -17,7 +17,7 @@ export default function MessagesSection({ navigation }) {
         `}
         showsHorizontalScrollIndicator={false}
         renderItem={(item) => (
-          <ChatListItem item={item?.item} navigation={navigation} />
+          <ChatListItem item={item?.item}  />
         )}
         keyExtractor={(item) => item.id}
       />

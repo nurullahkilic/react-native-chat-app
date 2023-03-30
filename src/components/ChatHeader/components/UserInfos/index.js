@@ -1,9 +1,12 @@
 import { TouchableHighlight, Image, View, Text } from "react-native";
 import { Content, UserText, HeaderText, StatusText } from "./styles";
 import { useModal } from "../../../../context/ModalContext";
+import { useNavigation } from "@react-navigation/native";
 
-export default function UserInfos({ name, uri, navigation }) {
+export default function UserInfos({ name, uri }) {
+  const navigation = useNavigation();
   const { openModal } = useModal();
+  
   return (
     <Content>
       <TouchableHighlight onPress={openModal} underlayColor="transparent">

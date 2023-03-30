@@ -1,12 +1,15 @@
 import { TouchableHighlight } from "react-native";
-import { GoBackInner, UnreadedMessages } from "./styles";
+import { GoBackInner } from "./styles";
 
 import { colors } from "../../../../config/colors";
 import { ArrowLeft } from "../../../icons";
 
 import { css } from "@emotion/native";
+import { useNavigation } from "@react-navigation/native";
 
-export default function BackButton({ navigation }) {
+export default function BackButton() {
+  const navigation = useNavigation();
+
   return (
     <TouchableHighlight
       onPress={() => navigation.goBack()}

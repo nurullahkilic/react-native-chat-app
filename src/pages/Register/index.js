@@ -27,7 +27,6 @@ import { useSession } from "../../context/SessionContext";
 export default function Register() {
   const setIsLoggedIn = useSession((state)=>state.setIsLoggedIn);
 
-
   const bannerUri =
     "https://efsanekareler.com/upload/media/entries/2019-05/06/699-0-4e1dbab781e52b5678335c828379e1b5.jpg";
 

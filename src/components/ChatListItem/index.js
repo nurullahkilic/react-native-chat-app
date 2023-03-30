@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/native";
 import {
   Container,
   Image,
@@ -11,7 +12,8 @@ import {
   NotiCount,
 } from "./styles";
 
-export default function ChatListItem({ item, navigation }) {
+export default function ChatListItem({ item }) {
+  const navigation = useNavigation();
   return (
     <Container
       activeOpacity={0.7}

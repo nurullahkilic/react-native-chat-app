@@ -5,11 +5,11 @@ import BackButton from "./components/BackButton";
 import UserInfos from "./components/UserInfos";
 
 
-export default function ChatHeader({ name, uri, navigation }) {
+export default function ChatHeader({ name, uri }) {
   return (
     <Container>
-      <BackButton navigation={navigation} />
-      <UserInfos name={name} uri={uri} navigation={navigation}/>
+      <BackButton />
+      <UserInfos name={name} uri={uri}/>
       <SearchWrapper
         onPress={() => alert("Search")}
         underlayColor="transparent"
