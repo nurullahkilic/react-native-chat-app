@@ -13,7 +13,7 @@ import UserDetailModal from "../../components/UserDetailModal";
 
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-function ChatScreenView({ navigation }) {
+function ChatScreenView() {
   return (
     <>
       <SafeAreaView style={{ flex: 0, backgroundColor: colors.primary }} />

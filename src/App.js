@@ -7,15 +7,13 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 //Zustand
 import { useSession } from "./context/SessionContext";
 
-
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import ChatScreen from "./pages/ChatScreen";
-import ProductView from "./pages/ProductView";
-import { useState } from "react";
+import ProductScreen from "./pages/Products";
 
 function HomeScreen({ navigation }) {
-  const setIsLoggedIn = useSession(state => state.setIsLoggedIn);
+  const setIsLoggedIn = useSession((state) => state.setIsLoggedIn);
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
       <Text>Home Screen</Text>
@@ -24,18 +22,8 @@ function HomeScreen({ navigation }) {
         onPress={() => navigation.navigate("ChatPage", { screen: "Home" })}
       />
       <Button
-        title="Aşk Zamanı"
-        onPress={() => navigation.navigate("ProductView", {
-          banner:"https://image.tmdb.org/t/p/w1280/n4GJFGzsc7NinI1VeGDXIcQjtU2.jpg",
-          poster:"https://image.tmdb.org/t/p/w780//iYypPT4bhqXfq1b6EnmxvRt6b2Y.jpg",
-        })}
-      />
-      <Button
-        title="House M.D."
-        onPress={() => navigation.navigate("ProductView", {
-          banner:"https://www.themoviedb.org/t/p/w1280/h3vViR087OJlk4PedNt5JLIKOOi.jpg",
-          poster:"https://image.tmdb.org/t/p/w780//lkvhReTBZ2Ksl0Dl5Oplsf6UYkF.jpg",
-        })}
+        title="ProductView"
+        onPress={() => navigation.navigate("ProductView", { screen: "productScreen" })}
       />
       <Button title="Çıkış Yap!" onPress={() => setIsLoggedIn(false)} />
     </View>
@@ -54,9 +42,8 @@ const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
 export default function App2() {
-  const isLoggedIn = useSession(state => state.isLoggedIn);
+  const isLoggedIn = useSession((state) => state.isLoggedIn);
 
-  
   return (
     <>
       {!isLoggedIn ? (
@@ -87,7 +74,7 @@ export default function App2() {
           />
           <Stack.Screen
             name="ProductView"
-            component={ProductView}
+            component={ProductScreen}
             options={{
               headerShown: false,
             }}
